@@ -57,24 +57,27 @@ def smooth(y, box_pts):
     return y_smooth
 
 
-err = []
-for i in range(1,100):
-    y_smooth = smooth(y_train,i)
-    reg.fit(X_train,y_smooth)
-    y_pred = reg.predict(X_test)
+# err = []
+# for i in range(1,100):
+#     y_smooth = smooth(y_train,i)
+#     reg.fit(X_train,y_smooth)
+#     y_pred = reg.predict(X_test)
+#     # l = X_test.shape[0]
+#     # a = []
+#     # for i in range(l):
+#     #     a.append(i+1)
+#     err.append(mean_squared_error(y_test,y_pred)**0.5)
+# # plt.plot(a,y_test,color="red")
+# # plt.plot(a,y_pred,color="blue")
+# # plt.show()
+# plt.plot(range(1,100),err)
+# plt.show()
 
-    err.append(mean_squared_error(y_test,y_pred)**0.5)
-
-
-
-plt.plot(range(1,100),err)
-plt.figure()
-
-l = X_train.shape[0]
-a = []
-for i in range(l):
-    a.append(i+1)
-plt.plot(a,y_train,color="red")
-plt.plot(a,smooth(y_train,80),color="blue")
-
-plt.show()
+# WITHOUT SMOOTH
+reg.fit(X_train,y_train)
+y_pred = reg.predict(X_test)
+print(mean_squared_error(y_test,y_pred)**0.5)
+# SMOOTH
+reg.fit(X_train,smooth(y_train,80))
+y_pred = reg.predict(X_test)
+print(mean_squared_error(y_test,y_pred)**0.5)
