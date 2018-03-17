@@ -32,10 +32,10 @@ df.to_csv('clean.csv',index=False)
 # plt.show()
 
 # VISUALIZATION
-# sns.set(style="ticks")
-#
-# sns.pairplot(df, hue="Status")
-# plt.show()
+sns.set(style="ticks")
+
+sns.pairplot(df, hue="Status")
+plt.show()
 
 # X =
 

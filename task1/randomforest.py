@@ -21,9 +21,9 @@ model = RandomForestClassifier()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
 
-# model.fit(X_train,y_train)
-# y_pred = model.predict(X_test)
+model.fit(X_train,y_train)
+y_pred = model.predict(X_test)
 # models = []
-# print(accuracy_score(y_test,y_pred))
+print(accuracy_score(y_test,y_pred))
 # print(classification_report(y_test,y_pred))
-print(cross_val_score(model, X, y, cv=10))
+# print(cross_val_score(model, X, y, cv=10))
